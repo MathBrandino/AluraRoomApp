@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import br.com.caelum.aluraroomapp.R;
+import br.com.caelum.aluraroomapp.converter.Conversores;
 import br.com.caelum.aluraroomapp.delegate.ProvaDelegate;
 import br.com.caelum.aluraroomapp.model.Prova;
 
@@ -69,7 +70,7 @@ public class FormularioProvasFragment extends Fragment {
 
     private void atualizaInformacoesDaProva() {
         prova.setMateria(materia.getText().toString());
-        //TODO setar a data
+        prova.setDataDeRealizacao(Conversores.toCalendar(dataRealizacao.getText().toString()));
     }
 
     private void populaCamposSeNecessario() {
@@ -78,8 +79,7 @@ public class FormularioProvasFragment extends Fragment {
             this.prova = (Prova) argumentos.get("prova");
 
             materia.setText(prova.getMateria());
-
-            // TODO popular a data
+            dataRealizacao.setText(Conversores.toString(prova.getDataDeRealizacao()));
         }
     }
 

@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import br.com.caelum.aluraroomapp.R;
+import br.com.caelum.aluraroomapp.converter.Conversores;
 import br.com.caelum.aluraroomapp.delegate.AlunoDelegate;
 import br.com.caelum.aluraroomapp.model.Aluno;
 
@@ -74,8 +75,7 @@ public class FormularioAlunosFragment extends Fragment {
 
             nome.setText(aluno.getNome());
             email.setText(aluno.getEmail());
-
-            // TODO implementar data nascimento
+            dataNascimento.setText(Conversores.toString(aluno.getDataNascimento()));
         }
     }
 
@@ -90,5 +90,6 @@ public class FormularioAlunosFragment extends Fragment {
     private void atualizaInformacoesDoAluno() {
         aluno.setNome(nome.getText().toString());
         aluno.setEmail(email.getText().toString());
+        aluno.setDataNascimento(Conversores.toCalendar(dataNascimento.getText().toString()));
     }
 }
