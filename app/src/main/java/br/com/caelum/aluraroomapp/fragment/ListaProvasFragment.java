@@ -52,9 +52,28 @@ public class ListaProvasFragment extends Fragment {
 
         listagem.setOnItemClickListener(clickNaLista());
 
+        listagem.setOnItemLongClickListener(clickLongoNaLista());
+
 
         FloatingActionButton botaoFlutuante = view.findViewById(R.id.fragment_lista_fab);
         listenerPara(botaoFlutuante);
+    }
+
+    private AdapterView.OnItemLongClickListener clickLongoNaLista() {
+        return new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int posicao, long id) {
+                Prova provaSelecionada = (Prova) adapterView.getItemAtPosition(posicao);
+
+                ProvaDao provaDao = GeradorDeBancoDeDados.para(getContext()).getProvaDao();
+
+                provaDao.deleta(provaSelecionada);
+
+                carregaLista();
+
+                return true;
+            }
+        };
     }
 
     private AdapterView.OnItemClickListener clickNaLista() {
