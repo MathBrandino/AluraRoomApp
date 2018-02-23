@@ -9,10 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import br.com.caelum.aluraroomapp.R;
 import br.com.caelum.aluraroomapp.converter.Conversores;
+import br.com.caelum.aluraroomapp.database.GeradorDeBancoDeDados;
+import br.com.caelum.aluraroomapp.database.dao.ProvaDao;
 import br.com.caelum.aluraroomapp.delegate.ProvaDelegate;
 import br.com.caelum.aluraroomapp.model.Prova;
 
@@ -59,9 +60,9 @@ public class FormularioProvasFragment extends Fragment {
             public void onClick(View view) {
                 atualizaInformacoesDaProva();
 
-                Toast.makeText(getContext(), prova.toString(), Toast.LENGTH_LONG).show();
+                ProvaDao provaDao = GeradorDeBancoDeDados.para(getContext()).getProvaDao();
 
-                //todo manter prova
+                provaDao.salva(prova);
 
                 delegate.retornaParaTelaAnterior();
             }

@@ -6,16 +6,20 @@ import android.arch.persistence.room.TypeConverters;
 
 import br.com.caelum.aluraroomapp.converter.Conversores;
 import br.com.caelum.aluraroomapp.database.dao.AlunoDao;
+import br.com.caelum.aluraroomapp.database.dao.ProvaDao;
 import br.com.caelum.aluraroomapp.model.Aluno;
+import br.com.caelum.aluraroomapp.model.Prova;
 
 /**
  * Created by matheusbrandino on 2/22/18.
  */
 
-@Database(version = 1, entities = {Aluno.class})
+@Database(version = 2, entities = {Aluno.class, Prova.class})
 @TypeConverters({Conversores.class})
 public abstract class AluraDatabase extends RoomDatabase {
 
     public abstract AlunoDao getAlunoDao();
+
+    public abstract ProvaDao getProvaDao();
 
 }
