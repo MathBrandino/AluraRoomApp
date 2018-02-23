@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -42,7 +43,30 @@ public class ListaAlunosFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lista, container, false);
 
+        configuraComponentes(view);
+
+        return view;
+    }
+
+    private void configuraComponentes(View view) {
         listagem = view.findViewById(R.id.fragment_lista);
+
+        listagem.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int posicao, long id) {
+
+                Aluno aluno = (Aluno) adapterView.getItemAtPosition(posicao);
+
+                delegate.lidaComAlunoSelecionado(aluno);
+
+            }
+        });
+
+
+        listenerFAB(view);
+    }
+
+    private void listenerFAB(View view) {
         FloatingActionButton botaoFlutuante = view.findViewById(R.id.fragment_lista_fab);
 
         botaoFlutuante.setOnClickListener(new View.OnClickListener() {
@@ -51,8 +75,6 @@ public class ListaAlunosFragment extends Fragment {
                 delegate.lidaComClickDoFAB();
             }
         });
-
-        return view;
     }
 
     @Override

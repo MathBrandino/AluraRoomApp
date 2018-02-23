@@ -23,6 +23,7 @@ import br.com.caelum.aluraroomapp.model.Aluno;
 
 public class FormularioAlunosFragment extends Fragment {
 
+    public static final String ALUNO = "aluno";
     private Aluno aluno = new Aluno();
 
     private EditText nome;
@@ -62,7 +63,12 @@ public class FormularioAlunosFragment extends Fragment {
 
                 AlunoDao alunoDao = GeradorDeBancoDeDados.para(getContext()).getAlunoDao();
 
-                alunoDao.insere(aluno);
+                if (aluno.getId() == null) {
+                    alunoDao.insere(aluno);
+
+                } else {
+                    alunoDao.atualiza(aluno);
+                }
 
                 delegate.retornaParaTelaAnterior();
             }
@@ -73,7 +79,7 @@ public class FormularioAlunosFragment extends Fragment {
     private void populaCamposQuandoNecessario() {
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.aluno = (Aluno) arguments.get("aluno");
+            this.aluno = (Aluno) arguments.get(ALUNO);
 
             nome.setText(aluno.getNome());
             email.setText(aluno.getEmail());
@@ -93,5 +99,18 @@ public class FormularioAlunosFragment extends Fragment {
         aluno.setNome(nome.getText().toString());
         aluno.setEmail(email.getText().toString());
         aluno.setDataNascimento(Conversores.toCalendar(dataNascimento.getText().toString()));
+    }
+
+    public static Fragment com(Aluno aluno) {
+        Bundle argumentos = new Bundle();
+
+        argumentos.putSerializable(ALUNO, aluno);
+
+        FormularioAlunosFragment formulario = new FormularioAlunosFragment();
+
+        formulario.setArguments(argumentos);
+
+        return formulario;
+
     }
 }
