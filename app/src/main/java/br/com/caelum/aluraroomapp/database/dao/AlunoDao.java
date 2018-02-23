@@ -2,6 +2,9 @@ package br.com.caelum.aluraroomapp.database.dao;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.Query;
+
+import java.util.List;
 
 import br.com.caelum.aluraroomapp.model.Aluno;
 
@@ -14,4 +17,7 @@ public interface AlunoDao {
 
     @Insert
     void insere(Aluno aluno);
+
+    @Query("select * from Aluno order by nome")
+    List<Aluno> lista();
 }
