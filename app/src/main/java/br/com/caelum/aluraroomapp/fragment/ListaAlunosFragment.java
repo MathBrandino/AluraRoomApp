@@ -62,6 +62,21 @@ public class ListaAlunosFragment extends Fragment {
             }
         });
 
+        listagem.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int posicao, long id) {
+                Aluno aluno = (Aluno) adapterView.getItemAtPosition(posicao);
+
+                AlunoDao alunoDao = GeradorDeBancoDeDados.para(getContext()).getAlunoDao();
+
+                alunoDao.deleta(aluno);
+
+                carregaLista();
+
+                return true;
+            }
+        });
+
 
         listenerFAB(view);
     }
