@@ -23,6 +23,7 @@ import br.com.caelum.aluraroomapp.model.Prova;
 
 public class FormularioProvasFragment extends Fragment {
 
+    public static final String PROVA = "prova";
     private ProvaDelegate delegate;
     private Prova prova = new Prova();
 
@@ -62,7 +63,12 @@ public class FormularioProvasFragment extends Fragment {
 
                 ProvaDao provaDao = GeradorDeBancoDeDados.para(getContext()).getProvaDao();
 
-                provaDao.salva(prova);
+                if (prova.getId() == null) {
+
+                    provaDao.salva(prova);
+                } else {
+                    provaDao.altera(prova);
+                }
 
                 delegate.retornaParaTelaAnterior();
             }
@@ -77,7 +83,7 @@ public class FormularioProvasFragment extends Fragment {
     private void populaCamposSeNecessario() {
         Bundle argumentos = getArguments();
         if (argumentos != null) {
-            this.prova = (Prova) argumentos.get("prova");
+            this.prova = (Prova) argumentos.get(PROVA);
 
             materia.setText(prova.getMateria());
             dataRealizacao.setText(Conversores.toString(prova.getDataDeRealizacao()));
@@ -88,5 +94,17 @@ public class FormularioProvasFragment extends Fragment {
         materia = view.findViewById(R.id.formulario_prova_materia);
         dataRealizacao = view.findViewById(R.id.formulario_prova_data);
         cadastrar = view.findViewById(R.id.formulario_prova_cadastrar);
+    }
+
+    public static Fragment com(Prova provaSelecionada) {
+
+        Bundle argumentos = new Bundle();
+        argumentos.putSerializable(PROVA, provaSelecionada);
+
+        FormularioProvasFragment formulario = new FormularioProvasFragment();
+        formulario.setArguments(argumentos);
+
+        return formulario;
+
     }
 }

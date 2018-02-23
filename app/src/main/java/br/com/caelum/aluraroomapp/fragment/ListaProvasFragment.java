@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -40,17 +41,40 @@ public class ListaProvasFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lista, container, false);
 
-        FloatingActionButton botaoFlutuante = view.findViewById(R.id.fragment_lista_fab);
+        configuraCampos(view);
+
+        return view;
+    }
+
+    private void configuraCampos(View view) {
+
         listagem = view.findViewById(R.id.fragment_lista);
 
+        listagem.setOnItemClickListener(clickNaLista());
+
+
+        FloatingActionButton botaoFlutuante = view.findViewById(R.id.fragment_lista_fab);
+        listenerPara(botaoFlutuante);
+    }
+
+    private AdapterView.OnItemClickListener clickNaLista() {
+        return new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int posicao, long id) {
+                Prova provaSelecionada = (Prova) adapterView.getItemAtPosition(posicao);
+
+                delegate.lidaCom(provaSelecionada);
+            }
+        };
+    }
+
+    private void listenerPara(FloatingActionButton botaoFlutuante) {
         botaoFlutuante.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 delegate.lidaComClickDoFAB();
             }
         });
-
-        return view;
     }
 
     @Override
