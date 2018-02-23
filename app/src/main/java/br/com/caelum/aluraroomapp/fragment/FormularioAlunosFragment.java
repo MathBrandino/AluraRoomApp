@@ -9,10 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import br.com.caelum.aluraroomapp.R;
 import br.com.caelum.aluraroomapp.converter.Conversores;
+import br.com.caelum.aluraroomapp.database.GeradorDeBancoDeDados;
+import br.com.caelum.aluraroomapp.database.dao.AlunoDao;
 import br.com.caelum.aluraroomapp.delegate.AlunoDelegate;
 import br.com.caelum.aluraroomapp.model.Aluno;
 
@@ -59,8 +60,9 @@ public class FormularioAlunosFragment extends Fragment {
             public void onClick(View view) {
                 atualizaInformacoesDoAluno();
 
-                Toast.makeText(getContext(), aluno.toString(), Toast.LENGTH_LONG).show();
-                // TODO manter o aluno
+                AlunoDao alunoDao = GeradorDeBancoDeDados.para(getContext()).getAlunoDao();
+
+                alunoDao.insere(aluno);
 
                 delegate.retornaParaTelaAnterior();
             }

@@ -1,5 +1,8 @@
 package br.com.caelum.aluraroomapp.model;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
 import java.io.Serializable;
 import java.util.Calendar;
 
@@ -7,8 +10,11 @@ import java.util.Calendar;
  * Created by matheusbrandino on 2/21/18.
  */
 
+@Entity
 public class Aluno implements Serializable {
 
+    @PrimaryKey(autoGenerate = true)
+    private Long id;
 
     private String nome;
     private String email;
@@ -39,6 +45,14 @@ public class Aluno implements Serializable {
         this.dataNascimento = dataNascimento;
     }
 
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     @Override
     public String toString() {
         return nome;

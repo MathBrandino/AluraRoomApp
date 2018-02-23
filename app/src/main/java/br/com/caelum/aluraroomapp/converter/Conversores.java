@@ -1,5 +1,6 @@
 package br.com.caelum.aluraroomapp.converter;
 
+import android.arch.persistence.room.TypeConverter;
 import android.util.Log;
 
 import java.text.ParseException;
@@ -16,6 +17,7 @@ public class Conversores {
     private static final String PADRAO = "dd/MM/yyyy";
     private static final SimpleDateFormat FORMATTER = new SimpleDateFormat(PADRAO);
 
+    @TypeConverter
     public static String toString(Calendar dataASerConvertida) {
 
         String dataFormatada = FORMATTER.format(dataASerConvertida.getTime());
@@ -23,6 +25,7 @@ public class Conversores {
         return dataFormatada;
     }
 
+    @TypeConverter
     public static Calendar toCalendar(String dataASerConvertida) {
         Calendar data = Calendar.getInstance();
         try {
