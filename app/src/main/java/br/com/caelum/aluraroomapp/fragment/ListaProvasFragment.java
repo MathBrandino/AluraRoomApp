@@ -1,5 +1,6 @@
 package br.com.caelum.aluraroomapp.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,10 +9,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.List;
+
 import br.com.caelum.aluraroomapp.R;
+import br.com.caelum.aluraroomapp.database.GeradorDeBancoDeDados;
+import br.com.caelum.aluraroomapp.database.dao.ProvaDao;
 import br.com.caelum.aluraroomapp.delegate.ProvaDelegate;
+import br.com.caelum.aluraroomapp.model.Prova;
 
 /**
  * Created by matheusbrandino on 2/21/18.
@@ -50,5 +57,18 @@ public class ListaProvasFragment extends Fragment {
     public void onResume() {
         super.onResume();
         delegate.alteraNomeActionBar("Provas realizadas");
+
+
+        carregaLista();
+    }
+
+    private void carregaLista() {
+
+        Context contexto = getContext();
+
+        ProvaDao provaDao = GeradorDeBancoDeDados.para(contexto).getProvaDao();
+        List<Prova> provas = provaDao.lista();
+
+        listagem.setAdapter(new ArrayAdapter<Prova>(contexto, android.R.layout.simple_list_item_1, provas));
     }
 }
