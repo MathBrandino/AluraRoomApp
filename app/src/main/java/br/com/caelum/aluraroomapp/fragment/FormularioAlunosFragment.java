@@ -69,7 +69,7 @@ public class FormularioAlunosFragment extends Fragment {
     }
 
     private void mantemAluno() {
-        AlunoDao alunoDao = GeradorDeBancoDeDados.para(getContext()).getAlunoDao();
+        AlunoDao alunoDao = GeradorDeBancoDeDados.getAluraDatabase(getContext()).getAlunoDao();
 
         if (aluno.getId() == null) {
             alunoDao.insere(aluno);

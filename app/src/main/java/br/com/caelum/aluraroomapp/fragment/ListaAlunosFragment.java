@@ -78,7 +78,7 @@ public class ListaAlunosFragment extends Fragment {
     }
 
     private void removeAluno(Aluno aluno) {
-        AlunoDao alunoDao = GeradorDeBancoDeDados.para(getContext()).getAlunoDao();
+        AlunoDao alunoDao = GeradorDeBancoDeDados.getAluraDatabase(getContext()).getAlunoDao();
 
         alunoDao.deleta(aluno);
     }
@@ -106,7 +106,7 @@ public class ListaAlunosFragment extends Fragment {
     private void carregaLista() {
         Context contexto = getContext();
 
-        AlunoDao alunoDao = GeradorDeBancoDeDados.para(contexto).getAlunoDao();
+        AlunoDao alunoDao = GeradorDeBancoDeDados.getAluraDatabase(contexto).getAlunoDao();
 
         List<Aluno> alunos = alunoDao.lista();
 

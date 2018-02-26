@@ -73,7 +73,7 @@ public class ListaProvasFragment extends Fragment {
     }
 
     private void removeProva(Prova provaSelecionada) {
-        ProvaDao provaDao = GeradorDeBancoDeDados.para(getContext()).getProvaDao();
+        ProvaDao provaDao = GeradorDeBancoDeDados.getAluraDatabase(getContext()).getProvaDao();
 
         provaDao.deleta(provaSelecionada);
     }
@@ -111,7 +111,7 @@ public class ListaProvasFragment extends Fragment {
 
         Context contexto = getContext();
 
-        ProvaDao provaDao = GeradorDeBancoDeDados.para(contexto).getProvaDao();
+        ProvaDao provaDao = GeradorDeBancoDeDados.getAluraDatabase(contexto).getProvaDao();
         List<Prova> provas = provaDao.lista();
 
         listaDeProvas.setAdapter(new ArrayAdapter<Prova>(contexto, android.R.layout.simple_list_item_1, provas));

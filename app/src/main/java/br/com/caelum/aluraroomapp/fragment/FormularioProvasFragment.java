@@ -67,7 +67,7 @@ public class FormularioProvasFragment extends Fragment {
     }
 
     private void mantemProva() {
-        ProvaDao provaDao = GeradorDeBancoDeDados.para(getContext()).getProvaDao();
+        ProvaDao provaDao = GeradorDeBancoDeDados.getAluraDatabase(getContext()).getProvaDao();
 
         if (prova.getId() == null) {
 
