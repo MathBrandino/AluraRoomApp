@@ -9,10 +9,11 @@ import android.support.annotation.NonNull;
 
 public class GeradorDeBancoDeDados {
 
+    public static final String ALURA_DB = "aluradb";
     private static AluraDatabase aluradb;
 
     public static AluraDatabase para(Context contexto) {
-        aluradb = Room.databaseBuilder(contexto, AluraDatabase.class, "aluradb")
+        aluradb = Room.databaseBuilder(contexto, AluraDatabase.class, ALURA_DB)
                 .allowMainThreadQueries()
                 .addMigrations(umParaDois())    // poderia usar o metodo fallbackToDestructiveMigration() senão precisar manter
                 .build();

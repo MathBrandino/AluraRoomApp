@@ -10,8 +10,8 @@ import java.util.Date;
 
 public class Conversores {
 
-    private static final String PADRAO = "dd/MM/yyyy";
-    private static final SimpleDateFormat FORMATTER = new SimpleDateFormat(PADRAO);
+    private static final String PADRAO_BRASILEIRO = "dd/MM/yyyy";
+    private static final SimpleDateFormat FORMATTER = new SimpleDateFormat(PADRAO_BRASILEIRO);
 
     @TypeConverter
     public static String toString(Calendar dataASerConvertida) {
