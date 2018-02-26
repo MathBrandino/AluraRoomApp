@@ -61,8 +61,8 @@ public class ProvasActivity extends AppCompatActivity implements ProvaDelegate {
     }
 
     @Override
-    public void lidaCom(Prova provaSelecionada) {
-        exibe(FormularioProvasFragment.com(provaSelecionada), true);
+    public void lidaCom(Prova prova) {
+        exibe(FormularioProvasFragment.com(prova), true);
     }
 
     @Override

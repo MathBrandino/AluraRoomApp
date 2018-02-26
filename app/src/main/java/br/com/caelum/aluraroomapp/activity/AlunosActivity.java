@@ -58,9 +58,9 @@ public class AlunosActivity extends AppCompatActivity implements AlunoDelegate {
     }
 
     @Override
-    public void lidaComAlunoSelecionado(Aluno alunoSelecionado) {
+    public void lidaComAlunoSelecionado(Aluno aluno) {
 
-        exibe(FormularioAlunosFragment.com(alunoSelecionado), true);
+        exibe(FormularioAlunosFragment.com(aluno), true);
     }
 
 
