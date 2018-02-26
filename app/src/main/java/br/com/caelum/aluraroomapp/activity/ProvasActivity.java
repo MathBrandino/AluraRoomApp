@@ -46,7 +46,7 @@ public class ProvasActivity extends AppCompatActivity implements ProvaDelegate {
 
     @Override
     public void alteraNomeActionBar(@NonNull String nomeASerExibido) {
-        getSupportActionBar().setTitle(nomeASerExibido);
+        setTitle(nomeASerExibido);
     }
 
     @Override

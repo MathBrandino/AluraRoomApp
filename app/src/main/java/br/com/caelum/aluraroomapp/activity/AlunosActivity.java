@@ -44,7 +44,7 @@ public class AlunosActivity extends AppCompatActivity implements AlunoDelegate {
 
     @Override
     public void alteraNomeActionBar(String nomeASerExibido) {
-        getSupportActionBar().setTitle(nomeASerExibido);
+       setTitle(nomeASerExibido);
     }
 
     @Override
