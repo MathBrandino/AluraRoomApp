@@ -10,9 +10,6 @@ import java.util.List;
 
 import br.com.caelum.aluraroomapp.model.Aluno;
 
-/**
- * Created by matheusbrandino on 2/22/18.
- */
 
 @Dao
 public interface AlunoDao {

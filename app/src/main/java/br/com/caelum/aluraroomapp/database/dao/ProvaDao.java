@@ -10,9 +10,6 @@ import java.util.List;
 
 import br.com.caelum.aluraroomapp.model.Prova;
 
-/**
- * Created by matheusbrandino on 2/23/18.
- */
 @Dao
 public interface ProvaDao {
     @Insert

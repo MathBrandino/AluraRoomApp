@@ -17,9 +17,6 @@ import br.com.caelum.aluraroomapp.database.dao.ProvaDao;
 import br.com.caelum.aluraroomapp.delegate.ProvaDelegate;
 import br.com.caelum.aluraroomapp.model.Prova;
 
-/**
- * Created by matheusbrandino on 2/22/18.
- */
 
 public class FormularioProvasFragment extends Fragment {
 

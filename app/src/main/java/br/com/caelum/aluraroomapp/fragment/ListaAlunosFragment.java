@@ -21,9 +21,6 @@ import br.com.caelum.aluraroomapp.database.dao.AlunoDao;
 import br.com.caelum.aluraroomapp.delegate.AlunoDelegate;
 import br.com.caelum.aluraroomapp.model.Aluno;
 
-/**
- * Created by matheusbrandino on 2/21/18.
- */
 
 public class ListaAlunosFragment extends Fragment {
 

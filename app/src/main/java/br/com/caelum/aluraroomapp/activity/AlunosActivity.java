@@ -13,9 +13,6 @@ import br.com.caelum.aluraroomapp.fragment.FormularioAlunosFragment;
 import br.com.caelum.aluraroomapp.fragment.ListaAlunosFragment;
 import br.com.caelum.aluraroomapp.model.Aluno;
 
-/**
- * Created by matheusbrandino on 2/21/18.
- */
 
 public class AlunosActivity extends AppCompatActivity implements AlunoDelegate {
 

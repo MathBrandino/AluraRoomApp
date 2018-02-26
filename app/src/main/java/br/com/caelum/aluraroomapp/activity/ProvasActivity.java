@@ -14,9 +14,6 @@ import br.com.caelum.aluraroomapp.fragment.FormularioProvasFragment;
 import br.com.caelum.aluraroomapp.fragment.ListaProvasFragment;
 import br.com.caelum.aluraroomapp.model.Prova;
 
-/**
- * Created by matheusbrandino on 2/21/18.
- */
 
 public class ProvasActivity extends AppCompatActivity implements ProvaDelegate {
 

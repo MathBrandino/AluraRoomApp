@@ -6,9 +6,6 @@ import android.arch.persistence.room.PrimaryKey;
 import java.io.Serializable;
 import java.util.Calendar;
 
-/**
- * Created by matheusbrandino on 2/22/18.
- */
 
 @Entity
 public class Prova implements Serializable {

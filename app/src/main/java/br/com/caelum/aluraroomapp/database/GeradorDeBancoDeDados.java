@@ -6,9 +6,6 @@ import android.arch.persistence.room.migration.Migration;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-/**
- * Created by matheusbrandino on 2/22/18.
- */
 
 public class GeradorDeBancoDeDados {
 

@@ -10,9 +10,7 @@ import br.com.caelum.aluraroomapp.database.dao.ProvaDao;
 import br.com.caelum.aluraroomapp.model.Aluno;
 import br.com.caelum.aluraroomapp.model.Prova;
 
-/**
- * Created by matheusbrandino on 2/22/18.
- */
+
 
 @Database(version = 2, entities = {Aluno.class, Prova.class})
 @TypeConverters({Conversores.class})

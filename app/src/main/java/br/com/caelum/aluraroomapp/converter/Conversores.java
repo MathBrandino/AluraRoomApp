@@ -8,10 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- * Created by matheusbrandino on 2/22/18.
- */
-
 public class Conversores {
 
     private static final String PADRAO = "dd/MM/yyyy";
