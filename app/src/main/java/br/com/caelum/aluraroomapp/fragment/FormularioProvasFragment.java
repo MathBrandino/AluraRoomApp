@@ -27,7 +27,7 @@ public class FormularioProvasFragment extends Fragment {
 
     private EditText materia;
     private EditText dataRealizacao;
-    private Button cadastrar;
+    private Button cadastra;
 
 
     @Override
@@ -54,7 +54,7 @@ public class FormularioProvasFragment extends Fragment {
 
     private void listenerParaBotaoCadastrar() {
 
-        cadastrar.setOnClickListener(new View.OnClickListener() {
+        cadastra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 atualizaInformacoesDaProva();
@@ -91,7 +91,7 @@ public class FormularioProvasFragment extends Fragment {
     private void buscaCamposDa(View view) {
         materia = view.findViewById(R.id.formulario_prova_materia);
         dataRealizacao = view.findViewById(R.id.formulario_prova_data);
-        cadastrar = view.findViewById(R.id.formulario_prova_cadastrar);
+        cadastra = view.findViewById(R.id.formulario_prova_cadastrar);
     }
 
     public static Fragment com(Prova provaSelecionada) {

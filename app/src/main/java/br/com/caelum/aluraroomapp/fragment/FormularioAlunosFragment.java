@@ -28,7 +28,7 @@ public class FormularioAlunosFragment extends Fragment {
     private EditText nome;
     private EditText dataNascimento;
     private EditText email;
-    private Button cadastrar;
+    private Button cadastra;
     private AlunoDelegate delegate;
 
 
@@ -55,7 +55,7 @@ public class FormularioAlunosFragment extends Fragment {
 
     private void listenerBotaoCadastrar() {
 
-        cadastrar.setOnClickListener(new View.OnClickListener() {
+        cadastra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 atualizaInformacoesDoAluno();
@@ -90,7 +90,7 @@ public class FormularioAlunosFragment extends Fragment {
         nome = view.findViewById(R.id.formulario_alunos_nome);
         dataNascimento = view.findViewById(R.id.formulario_alunos_nascimento);
         email = view.findViewById(R.id.formulario_alunos_email);
-        cadastrar = view.findViewById(R.id.formulario_alunos_cadastrar);
+        cadastra = view.findViewById(R.id.formulario_alunos_cadastrar);
     }
 
 
