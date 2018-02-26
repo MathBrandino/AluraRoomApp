@@ -60,19 +60,23 @@ public class FormularioAlunosFragment extends Fragment {
             public void onClick(View view) {
                 atualizaInformacoesDoAluno();
 
-                AlunoDao alunoDao = GeradorDeBancoDeDados.para(getContext()).getAlunoDao();
-
-                if (aluno.getId() == null) {
-                    alunoDao.insere(aluno);
-
-                } else {
-                    alunoDao.atualiza(aluno);
-                }
+                mantemAluno();
 
                 delegate.retornaParaTelaAnterior();
             }
         });
 
+    }
+
+    private void mantemAluno() {
+        AlunoDao alunoDao = GeradorDeBancoDeDados.para(getContext()).getAlunoDao();
+
+        if (aluno.getId() == null) {
+            alunoDao.insere(aluno);
+
+        } else {
+            alunoDao.atualiza(aluno);
+        }
     }
 
     private void populaCamposQuandoNecessario() {

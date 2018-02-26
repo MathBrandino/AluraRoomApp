@@ -59,18 +59,22 @@ public class FormularioProvasFragment extends Fragment {
             public void onClick(View view) {
                 atualizaInformacoesDaProva();
 
-                ProvaDao provaDao = GeradorDeBancoDeDados.para(getContext()).getProvaDao();
-
-                if (prova.getId() == null) {
-
-                    provaDao.salva(prova);
-                } else {
-                    provaDao.altera(prova);
-                }
+                mantemProva();
 
                 delegate.retornaParaTelaAnterior();
             }
         });
+    }
+
+    private void mantemProva() {
+        ProvaDao provaDao = GeradorDeBancoDeDados.para(getContext()).getProvaDao();
+
+        if (prova.getId() == null) {
+
+            provaDao.salva(prova);
+        } else {
+            provaDao.altera(prova);
+        }
     }
 
     private void atualizaInformacoesDaProva() {
