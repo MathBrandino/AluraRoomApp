@@ -84,9 +84,9 @@ public class ListaAlunosFragment extends Fragment {
     }
 
     private void listenerFAB(View view) {
-        FloatingActionButton botaoFlutuante = view.findViewById(R.id.fragment_lista_fab);
+        FloatingActionButton botaoAdicionar = view.findViewById(R.id.fragment_lista_fab);
 
-        botaoFlutuante.setOnClickListener(new View.OnClickListener() {
+        botaoAdicionar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 delegate.lidaComClickDoFAB();

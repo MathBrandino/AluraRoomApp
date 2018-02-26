@@ -53,8 +53,8 @@ public class ListaProvasFragment extends Fragment {
         listaDeProvas.setOnItemLongClickListener(clickLongoNaLista());
 
 
-        FloatingActionButton botaoFlutuante = view.findViewById(R.id.fragment_lista_fab);
-        listenerPara(botaoFlutuante);
+        FloatingActionButton botaoAdicionar = view.findViewById(R.id.fragment_lista_fab);
+        listenerPara(botaoAdicionar);
     }
 
     private AdapterView.OnItemLongClickListener clickLongoNaLista() {
