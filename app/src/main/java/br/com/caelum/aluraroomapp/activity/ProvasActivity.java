@@ -33,9 +33,9 @@ public class ProvasActivity extends AppCompatActivity implements ProvaDelegate {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         transaction.replace(R.id.provas_frame, fragment);
-        if (adicionadoNaPilha)
+        if (adicionadoNaPilha) {
             transaction.addToBackStack(null);
-
+        }
         transaction.commit();
     }
 

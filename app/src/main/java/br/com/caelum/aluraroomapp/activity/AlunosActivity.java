@@ -31,9 +31,9 @@ public class AlunosActivity extends AppCompatActivity implements AlunoDelegate {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         transaction.replace(R.id.alunos_frame, fragment);
-        if (adicionadoNaPilha)
+        if (adicionadoNaPilha) {
             transaction.addToBackStack(null);
-
+        }
         transaction.commit();
     }
 
@@ -66,8 +66,9 @@ public class AlunosActivity extends AppCompatActivity implements AlunoDelegate {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home)
+        if (item.getItemId() == android.R.id.home) {
             retornaParaTelaAnterior();
+        }
 
         return true;
     }
