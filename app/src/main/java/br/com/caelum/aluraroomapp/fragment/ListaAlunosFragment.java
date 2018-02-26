@@ -27,7 +27,7 @@ public class ListaAlunosFragment extends Fragment {
 
     public static final String TITULO_DA_ACTIVITY = "Listagem de alunos";
     private AlunoDelegate delegate;
-    private ListView listagem;
+    private ListView listaDeAlunos;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,9 +47,9 @@ public class ListaAlunosFragment extends Fragment {
     }
 
     private void configuraComponentes(View view) {
-        listagem = view.findViewById(R.id.fragment_lista);
+        listaDeAlunos = view.findViewById(R.id.fragment_lista);
 
-        listagem.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listaDeAlunos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int posicao, long id) {
 
@@ -60,14 +60,12 @@ public class ListaAlunosFragment extends Fragment {
             }
         });
 
-        listagem.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        listaDeAlunos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int posicao, long id) {
                 Aluno aluno = (Aluno) adapterView.getItemAtPosition(posicao);
 
-                AlunoDao alunoDao = GeradorDeBancoDeDados.para(getContext()).getAlunoDao();
-
-                alunoDao.deleta(aluno);
+                removeAluno(aluno);
 
                 carregaLista();
 
@@ -77,6 +75,12 @@ public class ListaAlunosFragment extends Fragment {
 
 
         listenerFAB(view);
+    }
+
+    private void removeAluno(Aluno aluno) {
+        AlunoDao alunoDao = GeradorDeBancoDeDados.para(getContext()).getAlunoDao();
+
+        alunoDao.deleta(aluno);
     }
 
     private void listenerFAB(View view) {
@@ -106,7 +110,7 @@ public class ListaAlunosFragment extends Fragment {
 
         List<Aluno> alunos = alunoDao.lista();
 
-        listagem.setAdapter(new ArrayAdapter<Aluno>(contexto, android.R.layout.simple_list_item_1, alunos));
+        listaDeAlunos.setAdapter(new ArrayAdapter<Aluno>(contexto, android.R.layout.simple_list_item_1, alunos));
     }
 }
 

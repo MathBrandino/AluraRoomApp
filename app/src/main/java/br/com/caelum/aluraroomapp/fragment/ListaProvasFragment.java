@@ -26,7 +26,7 @@ public class ListaProvasFragment extends Fragment {
 
     public static final String TITULO_DA_ACTIVITY = "Provas realizadas";
     private ProvaDelegate delegate;
-    private ListView listagem;
+    private ListView listaDeProvas;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,11 +46,11 @@ public class ListaProvasFragment extends Fragment {
 
     private void configuraCampos(View view) {
 
-        listagem = view.findViewById(R.id.fragment_lista);
+        listaDeProvas = view.findViewById(R.id.fragment_lista);
 
-        listagem.setOnItemClickListener(clickNaLista());
+        listaDeProvas.setOnItemClickListener(clickNaLista());
 
-        listagem.setOnItemLongClickListener(clickLongoNaLista());
+        listaDeProvas.setOnItemLongClickListener(clickLongoNaLista());
 
 
         FloatingActionButton botaoFlutuante = view.findViewById(R.id.fragment_lista_fab);
@@ -63,15 +63,19 @@ public class ListaProvasFragment extends Fragment {
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int posicao, long id) {
                 Prova provaSelecionada = (Prova) adapterView.getItemAtPosition(posicao);
 
-                ProvaDao provaDao = GeradorDeBancoDeDados.para(getContext()).getProvaDao();
-
-                provaDao.deleta(provaSelecionada);
+                removeProva(provaSelecionada);
 
                 carregaLista();
 
                 return true;
             }
         };
+    }
+
+    private void removeProva(Prova provaSelecionada) {
+        ProvaDao provaDao = GeradorDeBancoDeDados.para(getContext()).getProvaDao();
+
+        provaDao.deleta(provaSelecionada);
     }
 
     private AdapterView.OnItemClickListener clickNaLista() {
@@ -110,6 +114,6 @@ public class ListaProvasFragment extends Fragment {
         ProvaDao provaDao = GeradorDeBancoDeDados.para(contexto).getProvaDao();
         List<Prova> provas = provaDao.lista();
 
-        listagem.setAdapter(new ArrayAdapter<Prova>(contexto, android.R.layout.simple_list_item_1, provas));
+        listaDeProvas.setAdapter(new ArrayAdapter<Prova>(contexto, android.R.layout.simple_list_item_1, provas));
     }
 }
