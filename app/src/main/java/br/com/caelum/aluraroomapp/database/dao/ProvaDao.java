@@ -22,5 +22,5 @@ public interface ProvaDao {
     void altera(Prova prova);
 
     @Delete
-    void deleta(Prova provaSelecionada);
+    void deleta(Prova prova);
 }
