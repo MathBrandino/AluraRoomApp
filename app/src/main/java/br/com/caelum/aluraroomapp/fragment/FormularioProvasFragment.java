@@ -21,6 +21,7 @@ import br.com.caelum.aluraroomapp.model.Prova;
 public class FormularioProvasFragment extends Fragment {
 
     public static final String PROVA = "prova";
+    public static final String TITULO_DA_ACTIVITY = "Adicionar prova";
     private ProvaDelegate delegate;
     private Prova prova = new Prova();
 
@@ -33,7 +34,7 @@ public class FormularioProvasFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         delegate = (ProvaDelegate) getActivity();
-        delegate.alteraNomeActionBar("Adicionar prova");
+        delegate.alteraNomeActionBar(TITULO_DA_ACTIVITY);
     }
 
     @Nullable

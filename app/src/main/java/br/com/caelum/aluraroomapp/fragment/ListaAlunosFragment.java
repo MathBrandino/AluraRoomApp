@@ -25,6 +25,7 @@ import br.com.caelum.aluraroomapp.model.Aluno;
 public class ListaAlunosFragment extends Fragment {
 
 
+    public static final String TITULO_DA_ACTIVITY = "Listagem de alunos";
     private AlunoDelegate delegate;
     private ListView listagem;
 
@@ -92,7 +93,7 @@ public class ListaAlunosFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        delegate.alteraNomeActionBar("Listagem de alunos");
+        delegate.alteraNomeActionBar(TITULO_DA_ACTIVITY);
 
         carregaLista();
 

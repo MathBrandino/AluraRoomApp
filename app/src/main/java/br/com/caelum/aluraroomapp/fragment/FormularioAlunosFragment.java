@@ -22,6 +22,7 @@ import br.com.caelum.aluraroomapp.model.Aluno;
 public class FormularioAlunosFragment extends Fragment {
 
     public static final String ALUNO = "aluno";
+    public static final String TITULO_DA_ACTIVITY = "Cadastrar novo aluno";
     private Aluno aluno = new Aluno();
 
     private EditText nome;
@@ -35,7 +36,7 @@ public class FormularioAlunosFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         delegate = (AlunoDelegate) getActivity();
-        delegate.alteraNomeActionBar("Cadastrar novo aluno");
+        delegate.alteraNomeActionBar(TITULO_DA_ACTIVITY);
     }
 
     @Nullable

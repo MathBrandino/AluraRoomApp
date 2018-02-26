@@ -24,6 +24,7 @@ import br.com.caelum.aluraroomapp.model.Prova;
 
 public class ListaProvasFragment extends Fragment {
 
+    public static final String TITULO_DA_ACTIVITY = "Provas realizadas";
     private ProvaDelegate delegate;
     private ListView listagem;
 
@@ -96,7 +97,7 @@ public class ListaProvasFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        delegate.alteraNomeActionBar("Provas realizadas");
+        delegate.alteraNomeActionBar(TITULO_DA_ACTIVITY);
 
 
         carregaLista();
