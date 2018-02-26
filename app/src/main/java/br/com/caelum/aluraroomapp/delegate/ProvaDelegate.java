@@ -13,5 +13,5 @@ public interface ProvaDelegate {
 
     void retornaParaTelaAnterior();
 
-    void lidaCom(Prova provaSelecionada);
+    void lidaCom(Prova prova);
 }
